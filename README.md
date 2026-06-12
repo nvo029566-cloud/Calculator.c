@@ -1,146 +1,146 @@
-# 🧮 Máy Tính Cầm Tay (Handheld Calculator) — C Language
+# 🧮 Handheld Calculator — C Language
 
 [![Language](https://img.shields.io/badge/language-C-blue.svg)](https://en.wikipedia.org/wiki/C_(programming_language))
 [![Platform](https://img.shields.io/badge/platform-Windows-lightgrey.svg)](#)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](#-license)
 
-Một ứng dụng máy tính dòng lệnh (CLI) viết bằng **C**, hỗ trợ **22 chức năng** từ phép tính cơ bản đến nâng cao (lượng giác, logarithm, số học), kèm hệ thống **lưu lịch sử tính toán ra file**. Dự án được thiết kế theo kiến trúc **module hóa** (mỗi nhóm chức năng nằm trong file riêng), phù hợp cho mục đích học tập lập trình C.
+A command-line (CLI) calculator application written in **C**, supporting **22 functions** ranging from basic arithmetic to advanced operations (trigonometry, logarithms, number theory), along with a **calculation history system** saved to a file. The project is designed with a **modular architecture** (each group of features lives in its own file), making it ideal for learning C programming.
 
 ---
 
-## 📑 Mục lục
+## 📑 Table of Contents
 
-- [Tính năng](#-tính-năng)
-- [Cấu trúc dự án](#-cấu-trúc-dự-án)
-- [Yêu cầu hệ thống](#️-yêu-cầu-hệ-thống)
-- [Cài đặt & Biên dịch](#-cài-đặt--biên-dịch)
-- [Hướng dẫn sử dụng](#-hướng-dẫn-sử-dụng)
-- [Lịch sử tính toán](#-lịch-sử-tính-toán)
-- [Sơ đồ luồng chương trình](#-sơ-đồ-luồng-chương-trình)
-- [Lưu ý & Giới hạn](#️-lưu-ý--giới-hạn)
-- [Hướng phát triển](#-hướng-phát-triển-tiếp-theo)
-- [Tác giả](#-tác-giả)
+- [Features](#-features)
+- [Project Structure](#-project-structure)
+- [System Requirements](#️-system-requirements)
+- [Installation & Build](#-installation--build)
+- [Usage Guide](#-usage-guide)
+- [Calculation History](#-calculation-history)
+- [Program Flow Diagram](#-program-flow-diagram)
+- [Notes & Limitations](#️-notes--limitations)
+- [Roadmap](#-roadmap)
+- [Author](#-author)
 - [License](#-license)
 
 ---
 
-## ✨ Tính năng
+## ✨ Features
 
-### ➕ Cơ bản
+### ➕ Basic Operations
 
-| Lựa chọn | Chức năng | Ví dụ |
+| Option | Function | Example |
 |:---:|---|---|
-| 1 | Cộng (a + b) | `5 + 3 = 8` |
-| 2 | Trừ (a − b) | `5 − 3 = 2` |
-| 3 | Nhân (a × b) | `5 × 3 = 15` |
-| 4 | Chia (a ÷ b) | `6 ÷ 3 = 2` |
+| 1 | Addition (a + b) | `5 + 3 = 8` |
+| 2 | Subtraction (a − b) | `5 − 3 = 2` |
+| 3 | Multiplication (a × b) | `5 × 3 = 15` |
+| 4 | Division (a ÷ b) | `6 ÷ 3 = 2` |
 
-### 🔢 Toán học
+### 🔢 Mathematics
 
-| Lựa chọn | Chức năng | Ví dụ |
+| Option | Function | Example |
 |:---:|---|---|
-| 5 | Căn bậc 2 | `√16 = 4` |
-| 6 | Giai thừa (n!) | `5! = 120` |
-| 7 | Lũy thừa (aᵇ) | `2³ = 8` |
-| 8 | Kiểm tra số nguyên tố | `7 → là số nguyên tố` |
-| 9 | Ước chung lớn nhất (GCD) | `GCD(12, 18) = 6` |
-| 10 | Bội chung nhỏ nhất (LCM) | `LCM(4, 6) = 12` |
+| 5 | Square root | `√16 = 4` |
+| 6 | Factorial (n!) | `5! = 120` |
+| 7 | Power (aᵇ) | `2³ = 8` |
+| 8 | Prime number check | `7 → is prime` |
+| 9 | Greatest Common Divisor (GCD) | `GCD(12, 18) = 6` |
+| 10 | Least Common Multiple (LCM) | `LCM(4, 6) = 12` |
 
-### 📐 Lượng giác *(đơn vị: độ)*
+### 📐 Trigonometry *(unit: degrees)*
 
-| Lựa chọn | Chức năng |
+| Option | Function |
 |:---:|---|
 | 11 | Sine |
 | 12 | Cosine |
 | 13 | Tangent |
 
-### 🎯 Làm tròn
+### 🎯 Rounding
 
-| Lựa chọn | Chức năng | Ví dụ |
+| Option | Function | Example |
 |:---:|---|---|
-| 14 | Làm tròn thông thường | `3.6 → 4` |
-| 15 | Làm tròn lên (ceil) | `3.1 → 4` |
-| 16 | Làm tròn xuống (floor) | `3.9 → 3` |
+| 14 | Standard rounding | `3.6 → 4` |
+| 15 | Round up (ceil) | `3.1 → 4` |
+| 16 | Round down (floor) | `3.9 → 3` |
 
 ### 📊 Logarithm
 
-| Lựa chọn | Chức năng |
+| Option | Function |
 |:---:|---|
-| 17 | Logarithm tự nhiên (ln) |
-| 18 | Logarithm cơ số 10 (log₁₀) |
+| 17 | Natural logarithm (ln) |
+| 18 | Base-10 logarithm (log₁₀) |
 
-### ✅ Kiểm tra
+### ✅ Checks
 
-| Lựa chọn | Chức năng | Ví dụ |
+| Option | Function | Example |
 |:---:|---|---|
-| 19 | Kiểm tra số chẵn / lẻ | `4 → chẵn` |
-| 20 | Kiểm tra số hoàn hảo | `28 → là số hoàn hảo` |
+| 19 | Even / odd check | `4 → even` |
+| 20 | Perfect number check | `28 → is a perfect number` |
 
-### 🕘 Lịch sử
+### 🕘 History
 
-| Lựa chọn | Chức năng |
+| Option | Function |
 |:---:|---|
-| 21 | Xem lịch sử tính toán |
-| 22 | Xóa lịch sử |
-| **0** | **Thoát chương trình** |
+| 21 | View calculation history |
+| 22 | Clear history |
+| **0** | **Exit program** |
 
 ---
 
-## 📁 Cấu trúc dự án
+## 📁 Project Structure
 
 ```
 .
-├── main.c          # Hàm main, giao diện menu và xử lý lựa chọn
-├── calculator.c    # Các phép tính cơ bản (cộng, trừ, nhân, chia)
-├── calculator.h    # Header cho calculator.c
-├── advanced.c      # Các hàm toán học nâng cao
-├── advanced.h      # Header cho advanced.c
-├── history.c       # Quản lý lịch sử tính toán (đọc/ghi/xóa file)
-├── history.h       # Header cho history.c
-├── lichSu.txt      # File lưu lịch sử (tự động tạo khi chạy)
-└── README.md       # Tài liệu mô tả dự án
+├── main.c          # Main function, menu interface and option handling
+├── calculator.c    # Basic operations (add, subtract, multiply, divide)
+├── calculator.h    # Header for calculator.c
+├── advanced.c      # Advanced math functions
+├── advanced.h      # Header for advanced.c
+├── history.c       # History management (read/write/clear file)
+├── history.h       # Header for history.c
+├── lichSu.txt      # History file (auto-created at runtime)
+└── README.md       # Project documentation
 ```
 
-> 💡 Mỗi module (`calculator`, `advanced`, `history`) có file `.h` riêng để khai báo prototype, giúp tách biệt rõ ràng giữa giao diện và cài đặt — đúng nguyên tắc lập trình hướng module trong C.
+> 💡 Each module (`calculator`, `advanced`, `history`) has its own `.h` file declaring prototypes, keeping the interface cleanly separated from the implementation — following good modular C programming practice.
 
 ---
 
-## 🛠️ Yêu cầu hệ thống
+## 🛠️ System Requirements
 
-| Thành phần | Yêu cầu |
+| Component | Requirement |
 |---|---|
-| Hệ điều hành | Windows (sử dụng `windows.h` và `SetConsoleOutputCP(65001)` để hiển thị tiếng Việt UTF-8) |
-| Compiler | GCC (MinGW-w64) hoặc MSVC |
-| Thư viện chuẩn | `stdio.h`, `stdlib.h`, `string.h`, `ctype.h`, `math.h`, `windows.h` |
+| Operating System | Windows (uses `windows.h` and `SetConsoleOutputCP(65001)` to display Vietnamese text in UTF-8) |
+| Compiler | GCC (MinGW-w64) or MSVC |
+| Standard Libraries | `stdio.h`, `stdlib.h`, `string.h`, `ctype.h`, `math.h`, `windows.h` |
 
-> ⚠️ Trên Linux/macOS, cần loại bỏ hoặc thay thế các đoạn gọi `windows.h` / `SetConsoleOutputCP` để chương trình biên dịch được (xem [Lưu ý & Giới hạn](#️-lưu-ý--giới-hạn)).
+> ⚠️ On Linux/macOS, the `windows.h` / `SetConsoleOutputCP` calls must be removed or replaced for the program to compile (see [Notes & Limitations](#️-notes--limitations)).
 
 ---
 
-## 🚀 Cài đặt & Biên dịch
+## 🚀 Installation & Build
 
-### 1. Clone repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/<username>/<repo-name>.git
 cd <repo-name>
 ```
 
-### 2. Biên dịch bằng GCC
+### 2. Compile with GCC
 
 ```bash
 gcc main.c calculator.c advanced.c history.c -o main -lm
 ```
 
-> Cờ `-lm` cần thiết để liên kết thư viện toán học (`math.h`) — dùng cho căn bậc 2, lượng giác, logarithm, lũy thừa...
+> The `-lm` flag is required to link the math library (`math.h`) — used for square root, trigonometry, logarithms, power functions, etc.
 
-### 3. Chạy chương trình
+### 3. Run the program
 
 ```bash
 ./main
 ```
 
-Hoặc trên Windows:
+Or on Windows:
 
 ```bash
 main.exe
@@ -148,36 +148,36 @@ main.exe
 
 ---
 
-## 📖 Hướng dẫn sử dụng
+## 📖 Usage Guide
 
-Sau khi chạy, chương trình hiển thị menu với 22 chức năng. Người dùng chỉ cần:
+After running the program, a menu with 22 functions is displayed. The user simply needs to:
 
-1. Nhập **số tương ứng** với chức năng muốn dùng (0–22)
-2. Nhập các giá trị đầu vào theo hướng dẫn trên màn hình
-3. Xem kết quả — kết quả tính toán hợp lệ sẽ tự động được ghi vào `lichSu.txt`
-4. Lặp lại hoặc nhập `0` để thoát chương trình
+1. Enter the **number corresponding** to the desired function (0–22)
+2. Enter the required input values as prompted on screen
+3. View the result — valid results are automatically saved to `lichSu.txt`
+4. Repeat or enter `0` to exit the program
 
-**Ví dụ phiên làm việc:**
+**Example session:**
 
 ```
-===== MÁY TÍNH CẦM TAY =====
-1. Cộng        2. Trừ
-3. Nhân        4. Chia
-5. Căn bậc 2   ...
-0. Thoát
-=============================
-Nhập lựa chọn: 1
-Nhập số thứ nhất: 45
-Nhập số thứ hai: 25
-Kết quả: 45.00 + 25.00 = 70.00
-Đã lưu vào lịch sử.
+===== HANDHELD CALCULATOR =====
+1. Add         2. Subtract
+3. Multiply    4. Divide
+5. Square root ...
+0. Exit
+=================================
+Enter your choice: 1
+Enter the first number: 45
+Enter the second number: 25
+Result: 45.00 + 25.00 = 70.00
+Saved to history.
 ```
 
 ---
 
-## 📝 Lịch sử tính toán
+## 📝 Calculation History
 
-Mỗi phép tính **thành công** sẽ được tự động lưu vào file `lichSu.txt` (cùng thư mục với file thực thi), theo định dạng:
+Every **successful** calculation is automatically saved to the `lichSu.txt` file (in the same directory as the executable), in the following format:
 
 ```
 Cong = 70.00
@@ -185,14 +185,14 @@ Tru = -144.00
 Nhan = 15.00
 ```
 
-- **Lựa chọn 21**: hiển thị toàn bộ nội dung `lichSu.txt` ra màn hình
-- **Lựa chọn 22**: xóa toàn bộ nội dung lịch sử (ghi đè file rỗng)
+- **Option 21**: displays the full contents of `lichSu.txt` on screen
+- **Option 22**: clears the entire history (overwrites the file as empty)
 
-> Các phép tính bị lỗi (chia cho 0, căn của số âm, log của số không dương...) **sẽ không** được ghi vào lịch sử.
+> Calculations that result in an error (division by zero, square root of a negative number, logarithm of a non-positive number, etc.) **will not** be saved to the history.
 
 ---
 
-## 🔄 Sơ đồ luồng chương trình
+## 🔄 Program Flow Diagram
 
 ```
 ┌─────────────┐
@@ -201,59 +201,59 @@ Nhan = 15.00
        │
        ▼
 ┌─────────────────────┐
-│  Hiển thị menu (0-22)│◄──────────────┐
+│  Display menu (0-22) │◄──────────────┐
 └──────┬───────────────┘               │
        │                                │
        ▼                                │
 ┌─────────────────────┐                │
-│ Nhập lựa chọn        │                │
+│ Read user choice     │                │
 └──────┬───────────────┘                │
        │                                │
        ▼                                │
 ┌─────────────────────────────┐         │
-│ switch(luaChon)              │         │
+│ switch(choice)               │         │
 │  ├─ 1-4   → calculator.c     │         │
 │  ├─ 5-20  → advanced.c       │         │
 │  ├─ 21-22 → history.c        │         │
-│  └─ 0     → Thoát            │         │
+│  └─ 0     → Exit             │         │
 └──────┬────────────────────────┘        │
-       │ (kết quả hợp lệ)                │
+       │ (valid result)                  │
        ▼                                  │
 ┌─────────────────────┐                  │
-│ Ghi vào lichSu.txt   │──────────────────┘
+│ Write to lichSu.txt  │──────────────────┘
 └─────────────────────┘
 ```
 
 ---
 
-## ⚠️ Lưu ý & Giới hạn
+## ⚠️ Notes & Limitations
 
-- **Chia cho 0**: chương trình thông báo lỗi và **không** ghi vào lịch sử.
-- **Căn bậc 2 của số âm**: trả về lỗi, không tính toán.
-- **Giai thừa (n!)**: chỉ chấp nhận số nguyên **không âm**.
-  - ⚠️ Hàm `gt()` hiện dùng kiểu `int` cho biến trung gian — với `n` lớn (n > 12) có thể bị **tràn số (overflow)**. Nên đổi sang `long long` để mở rộng phạm vi tính toán an toàn (lên đến `20!`).
-- **Logarithm**: chỉ hợp lệ với số dương (`x > 0`).
-- **Tính tương thích hệ điều hành**: các lệnh `windows.h`/`SetConsoleOutputCP` chỉ chạy trên Windows. Để chạy trên Linux/macOS, cần bọc các đoạn này trong `#ifdef _WIN32 ... #endif` hoặc loại bỏ.
-
----
-
-## 🔮 Hướng phát triển tiếp theo
-
-- [ ] Khắc phục tràn số trong hàm giai thừa bằng `long long` hoặc kiểu `double` cho `n` lớn
-- [ ] Hỗ trợ đa nền tảng (Linux/macOS) thông qua `#ifdef`
-- [ ] Thêm chức năng tính phần trăm (%)
-- [ ] Thêm bộ nhớ tạm (memory: M+, M-, MR, MC)
-- [ ] Cho phép xuất lịch sử ra file CSV để dễ phân tích
-- [ ] Viết unit test cho các module `calculator` và `advanced`
+- **Division by zero**: the program displays an error message and does **not** save it to the history.
+- **Square root of a negative number**: returns an error without performing the calculation.
+- **Factorial (n!)**: only accepts **non-negative integers**.
+  - ⚠️ The `gt()` function currently uses an `int` for its intermediate variable — for large values of `n` (n > 12), this can cause **integer overflow**. Switching to `long long` is recommended to safely extend the supported range (up to `20!`).
+- **Logarithm**: only valid for positive numbers (`x > 0`).
+- **Cross-platform compatibility**: the `windows.h`/`SetConsoleOutputCP` calls only work on Windows. To run on Linux/macOS, wrap these sections in `#ifdef _WIN32 ... #endif` or remove them.
 
 ---
 
-## 👤 Tác giả
+## 🔮 Roadmap
 
-Dự án được viết bằng ngôn ngữ **C**, theo phong cách lập trình **hướng module** (modular programming), phù hợp cho mục đích học tập và thực hành cấu trúc dữ liệu, giải thuật cơ bản trong C.
+- [ ] Fix factorial overflow using `long long` or `double` for large `n`
+- [ ] Add cross-platform support (Linux/macOS) via `#ifdef`
+- [ ] Add a percentage (%) function
+- [ ] Add temporary memory functions (M+, M-, MR, MC)
+- [ ] Allow exporting history to a CSV file for easier analysis
+- [ ] Write unit tests for the `calculator` and `advanced` modules
+
+---
+
+## 👤 Author
+
+This project is written in **C**, following a **modular programming** style, and is intended for learning purposes and practicing basic data structures and algorithms in C.
 
 ---
 
 ## 📄 License
 
-Dự án được phát hành theo giấy phép **MIT** — tự do sử dụng, sửa đổi và phân phối cho mục đích học tập và phi thương mại.
+This project is released under the **MIT License** — free to use, modify, and distribute for educational and non-commercial purposes.
